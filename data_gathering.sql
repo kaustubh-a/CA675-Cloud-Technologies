@@ -1,4 +1,4 @@
-select * from (select p.Id,	
+select top 50000 p.Id,	
 PostTypeId,
 AcceptedAnswerId,
 ParentId,
@@ -6,7 +6,7 @@ p.CreationDate,
 DeletionDate,
 Score,
 ViewCount,
---Body,
+Body,
 OwnerUserId,
 u.DisplayName,
 LastEditorUserId,
@@ -20,8 +20,98 @@ CommentCount,
 FavoriteCount,
 ClosedDate,
 CommunityOwnedDate,
-ContentLicense, ROW_NUMBER() OVER(ORDER BY viewcount DESC) 
-Row from posts as p
+ContentLicense from posts as p
 inner join
 Users as u
-on p.OwnerUserId=u.Id)x where Row between 150001 and 200000
+on p.OwnerUserId=u.Id
+where p.ViewCount <= (select max(viewcount) from Posts)
+order by ViewCount desc
+
+
+select top 50000 p.Id,	
+PostTypeId,
+AcceptedAnswerId,
+ParentId,
+p.CreationDate,
+DeletionDate,
+Score,
+ViewCount,
+Body,
+OwnerUserId,
+u.DisplayName,
+LastEditorUserId,
+LastEditorDisplayName,
+LastEditDate,
+LastActivityDate,
+Title,
+Tags,
+AnswerCount,
+CommentCount,
+FavoriteCount,
+ClosedDate,
+CommunityOwnedDate,
+ContentLicense from posts as p
+inner join
+Users as u
+on p.OwnerUserId=u.Id
+where p.ViewCount < 124974 
+order by ViewCount desc
+
+
+select top 50000 p.Id,	
+PostTypeId,
+AcceptedAnswerId,
+ParentId,
+p.CreationDate,
+DeletionDate,
+Score,
+ViewCount,
+Body,
+OwnerUserId,
+u.DisplayName,
+LastEditorUserId,
+LastEditorDisplayName,
+LastEditDate,
+LastActivityDate,
+Title,
+Tags,
+AnswerCount,
+CommentCount,
+FavoriteCount,
+ClosedDate,
+CommunityOwnedDate,
+ContentLicense from posts as p
+inner join
+Users as u
+on p.OwnerUserId=u.Id
+where p.ViewCount < 73139 
+order by ViewCount desc
+
+select top 50000 p.Id,	
+PostTypeId,
+AcceptedAnswerId,
+ParentId,
+p.CreationDate,
+DeletionDate,
+Score,
+ViewCount,
+Body,
+OwnerUserId,
+u.DisplayName,
+LastEditorUserId,
+LastEditorDisplayName,
+LastEditDate,
+LastActivityDate,
+Title,
+Tags,
+AnswerCount,
+CommentCount,
+FavoriteCount,
+ClosedDate,
+CommunityOwnedDate,
+ContentLicense from posts as p
+inner join
+Users as u
+on p.OwnerUserId=u.Id
+where p.ViewCount < 52110 
+order by ViewCount desc
