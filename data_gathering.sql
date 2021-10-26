@@ -1,3 +1,4 @@
+#Dataset-1
 select top 50000 p.Id,	
 PostTypeId,
 AcceptedAnswerId,
@@ -27,7 +28,7 @@ on p.OwnerUserId=u.Id
 where p.ViewCount <= (select max(viewcount) from Posts)
 order by ViewCount desc
 
-
+#Dataset-2
 select top 50000 p.Id,	
 PostTypeId,
 AcceptedAnswerId,
@@ -58,6 +59,7 @@ where p.ViewCount < 124974
 order by ViewCount desc
 
 
+#Dataset-3
 select top 50000 p.Id,	
 PostTypeId,
 AcceptedAnswerId,
@@ -87,6 +89,7 @@ on p.OwnerUserId=u.Id
 where p.ViewCount < 73139 
 order by ViewCount desc
 
+#Dataset-4
 select top 50000 p.Id,	
 PostTypeId,
 AcceptedAnswerId,
